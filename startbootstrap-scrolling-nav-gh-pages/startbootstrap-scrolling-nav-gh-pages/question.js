@@ -112,7 +112,7 @@
         id: 'question'
       });
       
-      var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+      var header = $('<h3>Question ' + (index + 1) + ':</h3>');
       qElement.append(header);
       
       var question = $('<p>').append(questions[index].question);
