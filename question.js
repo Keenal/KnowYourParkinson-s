@@ -11,7 +11,10 @@
       question: "Balance/Walking Difficulties - Taking small or slow steps; a shuffling giat; decrease in the natural swing of the arms.",
       choices: ["Never", "Rarely", "Occasionally", "Sometimes", "Frequently", "Always"],
       correctAnswer: "Never"
-    }, {
+    }
+  ];
+    /*
+    {
       question: "Motor Fluctuations/Dyskinesia - On and off periods of controlled motor symptoms; sudden, uncontrollabele, movements.",
       choices: ["Never", "Rarely", "Occasionally", "Sometimes", "Frequently", "Always"],
       correctAnswer: "Never"
@@ -44,7 +47,8 @@
         choices: ["Never", "Rarely", "Occasionally", "Sometimes", "Frequently", "Always"],
         correctAnswer: "Never"
     }
-];
+    */
+
     
     var questionCounter = 0; //Tracks question number
     var selections = []; //Array containing user choices
@@ -143,6 +147,8 @@
     function choose() {
       selections[questionCounter] = +$('input[name="answer"]:checked').val();
     }
+
+
     
     // Displays next requested element
     function displayNext() {
@@ -178,15 +184,46 @@
     function displayScore() {
       var score = $('<p>',{id: 'question'});
       
-      var numCorrect = 0;
+     /* var numCorrect = 0;
       for (var i = 0; i < selections.length; i++) {
         if (selections[i] === questions[i].correctAnswer) {
           numCorrect++;
         }
       }
-      
+    */
+
+   var numCorrect = 0;
+    for (var i = 0; i < selections.length; i++) {
+      alert(selections[0]);
+      switch(selections[i]){
+        case 0:
+          numCorrect = numCorrect + 5;
+          break;
+        case 1:
+          numCorrect = numCorrect + 4;
+          break;
+        case 2:
+          numCorrect = numCorrect + 3;
+          break;
+        case 3:
+          numCorrect = numCorrect + 2;
+          break;
+        case 4:
+          numCorrect = numCorrect + 1;
+          break;
+        case 5:
+          numCorrect = numCorrect + 0;
+          break;
+        default:
+          break;
+      }
+    }
+    
       score.append('You got ' + numCorrect + ' questions out of ' +
                    questions.length + ' right!!!');
-      return score;
+
+      return numCorrect;
     }
+
+
   })();
