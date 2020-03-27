@@ -11,10 +11,7 @@
       question: "Balance/Walking Difficulties - Taking small or slow steps; a shuffling giat; decrease in the natural swing of the arms.",
       choices: ["Never", "Rarely", "Occasionally", "Sometimes", "Frequently", "Always"],
       correctAnswer: "Never"
-    }
-  ];
-    /*
-    {
+    }, {
       question: "Motor Fluctuations/Dyskinesia - On and off periods of controlled motor symptoms; sudden, uncontrollabele, movements.",
       choices: ["Never", "Rarely", "Occasionally", "Sometimes", "Frequently", "Always"],
       correctAnswer: "Never"
@@ -47,7 +44,7 @@
         choices: ["Never", "Rarely", "Occasionally", "Sometimes", "Frequently", "Always"],
         correctAnswer: "Never"
     }
-    */
+];
 
     
     var questionCounter = 0; //Tracks question number
@@ -120,7 +117,11 @@
       qElement.append(header);
       
       var question = $('<p>').append(questions[index].question);
-      qElement.append(question);
+      qElement.append(question );
+      var br = document.createElement("br");
+      var br1 = document.createElement("br");
+      qElement.append(br);
+      qElement.append(br1);
       
       var radioButtons = createRadios(index);
       qElement.append(radioButtons);
@@ -128,6 +129,25 @@
       return qElement;
     }
     
+
+
+    /*
+    function centerImages() {
+      var image1 = document.getElementsByClassName("w3-container").style.backgroundImage=url("./img.jpg");
+      var rect1 = image1.getBoundingClientRect();
+      var cx = rect1.left + rect1.width * 0.5;    // find center of first image
+      var cy = rect1.top + rect1.height * 0.5;
+    
+      var image2 = document.getElementById("image2");
+      var rect2 = image2.getBoundingClientRect();
+      var x = cx - rect2.width * 0.5;            // use center of first, subtract second
+      var y = cy - rect2.height * 0.5;
+      image2.style.cssText = "position:fixed;left:" + x + "px; top:" + y + "px";
+    }
+    window.onload = window.onresize = window.onscroll = centerImages;
+
+    */
+
     // Creates a list of the answer choices as radio inputs
     function createRadios(index) {
       var radioList = $('<ul>');
