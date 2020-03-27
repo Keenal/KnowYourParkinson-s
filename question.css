@@ -86,7 +86,7 @@ ul {
 .w3-container {
     height: 100%;
    
-    background-image: url();
+    background-image: url("/img.jpg");
     background-size: cover;
     
 }
